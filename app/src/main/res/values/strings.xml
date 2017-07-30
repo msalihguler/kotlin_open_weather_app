@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Open Weather Application</string>
+    <string name="menu_search_title">Search</string>
+    <string name="menu_search_hint">Write a city name here</string>
+    <string name="empty_state_message">Either you have not made a search or there is nothing to show for your search.</string>
+    <string name="city_not_found_toast_message">City is not found</string>
+    <string name="connection_error_message">There was something wrong with the connection.</string>
+    <string name="missing_api_key_message">API Key not added. Please add it.</string>
+    <string name="weather_icon_description">Weather Icon</string>
+</resources>
