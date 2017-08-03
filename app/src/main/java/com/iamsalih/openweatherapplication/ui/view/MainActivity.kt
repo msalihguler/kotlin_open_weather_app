@@ -18,7 +18,7 @@ import com.iamsalih.openweatherapplication.ui.ForecastItemViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() , MainView {
+class MainActivity : AppCompatActivity(), MainView {
     val presenter = MainPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() , MainView {
     }
 
     inline fun <reified T> Any.safeCast() = this as? T
-    fun Activity.toast(toastMessage : String,  duration: Int = Toast.LENGTH_SHORT) {
+    fun Activity.toast(toastMessage: String, duration: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(this, toastMessage, duration).show()
     }
 
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() , MainView {
     }
 
     override fun showErrorToast(errorType: ErrorTypes) {
-        when(errorType) {
+        when (errorType) {
             ErrorTypes.CALL_ERROR -> toast(getString(R.string.connection_error_message))
             ErrorTypes.MISSING_API_KEY -> toast(getString(R.string.missing_api_key_message))
             ErrorTypes.NO_RESULT_FOUND -> toast(getString(R.string.city_not_found_toast_message))
