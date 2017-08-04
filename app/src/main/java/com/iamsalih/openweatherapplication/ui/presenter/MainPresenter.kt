@@ -26,7 +26,7 @@ class MainPresenter(val view : MainView) {
             return
         }
         view.showSpinner()
-        api.getForecast(cityName , 7).enqueue(object : Callback<WeatherResponse> {
+        api.dailyForecast(cityName , 7).enqueue(object : Callback<WeatherResponse> {
 
             override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
                 response.body()?.let {
