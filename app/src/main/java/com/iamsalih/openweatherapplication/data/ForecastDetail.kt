@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by muhammedsalihguler on 27.07.17.
  */
-data class ForecastDetail(@SerializedName("dt") val  date: Long,
-                          @SerializedName("temp") val temperature : Temperature,
-                          @SerializedName("weather") val description : List<WeatherDescription>,
-                          @SerializedName("pressure") val pressure : Double,
-                          @SerializedName("humidity") val humidity :Double)
+data class ForecastDetail(@SerializedName("dt") var  date: Long,
+                          @SerializedName("temp") var temperature : Temperature,
+                          @SerializedName("weather") var description : List<WeatherDescription>,
+                          @SerializedName("pressure") var pressure : Double,
+                          @SerializedName("humidity") var humidity :Double)

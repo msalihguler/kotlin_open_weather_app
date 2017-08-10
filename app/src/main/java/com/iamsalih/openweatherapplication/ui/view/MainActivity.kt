@@ -67,8 +67,6 @@ class MainActivity : AppCompatActivity(), MainView {
         return true
     }
 
-    private fun getForecast(query: String) = presenter.getForecastForSevenDays(query)
-
     override fun hideSpinner() {
         forecastList.visibility = View.VISIBLE
         loadingSpinner.visibility = View.GONE
@@ -79,7 +77,10 @@ class MainActivity : AppCompatActivity(), MainView {
         forecastList.adapter.safeCast<ForecastAdapter>()?.addForecast(forecasts)
     }
 
+    private fun getForecast(query: String) = presenter.getForecastForSevenDays(query)
+
     inline fun <reified T> Any.safeCast() = this as? T
+
     fun Activity.toast(toastMessage: String, duration: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(this, toastMessage, duration).show()
     }

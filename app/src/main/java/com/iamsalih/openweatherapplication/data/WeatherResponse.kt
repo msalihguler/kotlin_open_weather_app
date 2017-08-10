@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by muhammedsalihguler on 27.07.17.
  */
-data class WeatherResponse (@SerializedName("city") val city : City,
-                            @SerializedName("list") val forecast : List<ForecastDetail>)
+data class WeatherResponse (@SerializedName("city") var city : City,
+                            @SerializedName("list") var forecast : List<ForecastDetail>)

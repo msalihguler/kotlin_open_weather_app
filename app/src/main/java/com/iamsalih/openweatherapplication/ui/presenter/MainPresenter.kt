@@ -43,7 +43,7 @@ class MainPresenter(val view : MainView) {
     }
 
     private fun  createListForView(weatherResponse: WeatherResponse) {
-        val forecasts = ArrayList<ForecastItemViewModel>()
+        val forecasts = mutableListOf<ForecastItemViewModel>()
         for (forecastDetail : ForecastDetail in weatherResponse.forecast) {
                 val dayTemp = forecastDetail.temperature.dayTemperature
                 val forecastItem = ForecastItemViewModel(degreeDay = dayTemp.toString(),
