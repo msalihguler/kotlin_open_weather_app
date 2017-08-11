@@ -1,5 +1,7 @@
 package com.iamsalih.openweatherapplication.ui.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +9,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.iamsalih.openweatherapplication.R
 import com.iamsalih.openweatherapplication.ui.ForecastItemViewModel
+import com.iamsalih.openweatherapplication.ui.view.DetailActivity
 import kotlinx.android.synthetic.main.forecast_list_item.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,6 +50,13 @@ class ForecastAdapter() : RecyclerView.Adapter<ForecastAdapter.ForecastViewHolde
             Glide.with(itemView.context)
                     .load("http://openweathermap.org/img/w/${forecastElement.icon}.png")
                     .into(itemView.weatherIcon)
+            itemView.setOnClickListener { openDetailsView(itemView.context, forecastElement) }
+        }
+
+        private fun  openDetailsView(context: Context?, forecastElement : ForecastItemViewModel) {
+            val intent: Intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("extra", forecastElement)
+            context?.startActivity(intent)
         }
 
         private fun  getDate(date: Long): String {

@@ -30,7 +30,7 @@ class MainPresenter(val view : MainView) {
 
             override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
                 response.body()?.let {
-                    createListForView(it)
+                    createListForView(it, cityName)
                     view.hideSpinner()
                 } ?: view.showErrorToast(ErrorTypes.NO_RESULT_FOUND)
             }
@@ -42,14 +42,19 @@ class MainPresenter(val view : MainView) {
         })
     }
 
-    private fun  createListForView(weatherResponse: WeatherResponse) {
+    private fun  createListForView(weatherResponse: WeatherResponse, cityName: String) {
         val forecasts = mutableListOf<ForecastItemViewModel>()
         for (forecastDetail : ForecastDetail in weatherResponse.forecast) {
                 val dayTemp = forecastDetail.temperature.dayTemperature
                 val forecastItem = ForecastItemViewModel(degreeDay = dayTemp.toString(),
                         date = forecastDetail.date,
                         icon = forecastDetail.description[0].icon,
-                        description = forecastDetail.description[0].description)
+                        description = forecastDetail.description[0].description,
+                        humidity = forecastDetail.humidity.toString(),
+                        pressure = forecastDetail.pressure.toString(),
+                        minimumDegree =  forecastDetail.temperature.minTemperature.toString(),
+                        maximumDegree = forecastDetail.temperature.maxTemperature.toString(),
+                        cityName = cityName)
             forecasts.add(forecastItem)
         }
         view.updateForecast(forecasts)

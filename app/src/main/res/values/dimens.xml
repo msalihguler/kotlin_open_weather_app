@@ -3,4 +3,7 @@
     <dimen name="main_padding">8dp</dimen>
     <dimen name="list_item_size">100dp</dimen>
     <dimen name="list_weather_icon_size">30dp</dimen>
+    <dimen name="big_text_size">72sp</dimen>
+    <dimen name="medium_text_size">48sp</dimen>
+    <dimen name="small_text_size">24sp</dimen>
 </resources>
